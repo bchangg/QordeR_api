@@ -1,0 +1,1 @@
+INSERT INTO restaurants (name, username, password) VALUES ('Test1', 'bob@test.com', 'password');

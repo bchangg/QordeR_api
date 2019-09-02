@@ -22,8 +22,15 @@ let order = ["Fries", "Burger"];
 
 // An api endpoint that returns a short list of items
 app.get('/api/getMenu', (req, res) => {
-  res.json(order);
-  console.log('Sent list of items');
+  const queryConfig = {
+    text: `SELECT * FROM restaurants;`,
+    values: []
+  };
+  db.query(queryConfig)
+    .then((response) => {
+      console.log('Sent list of items');
+      res.json(response.rows);
+    });
 });
 
 app.post('/api/getMenu', (req, res) => {
@@ -39,7 +46,7 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/logout', (req, res) => {
-  console.log('reached logou');
+  console.log('reached logout');
 });
 
 // Handles any requests that don't match the ones above
