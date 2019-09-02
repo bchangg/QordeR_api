@@ -20,7 +20,9 @@ app.use(morgan('dev'));
 
 let order = ["Fries", "Burger"];
 
-// An api endpoint that returns a short list of items
+// api endpoint currently queries database to return all restaurants
+// may need menu helper to construct a proper object
+// to send to front end
 app.get('/api/getMenu', (req, res) => {
   const queryConfig = {
     text: `SELECT * FROM restaurants;`,
